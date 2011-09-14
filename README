@@ -1,1 +1,4 @@
-creates a root file from an egg file using monarch and cicada.  Fits noise and creates power spectrum.
+Creates a root file from an egg file using monarch and cicada.  
+Fits noise and creates power spectrum.
+Requires ROOT, FFTW3, and MXML.
+
