@@ -61,12 +61,13 @@ int main(int argc, char *argv[]) {
     while((flag = mHatchNextEvent(current)) != 1) {
       count++;
       inputData(current, input);//store record into array for fft
+      //rFile.inputTestData(input);//put fake data into array for fft
       executePlan(input);//execute fft
       rFile.writeTimeTrees(input, count);
       rFile.fitTimeNoise(count);
       rFile.writeFreqTrees(input, count);
       rFile.createPS(count);
-      rFile.findPeaks(count, px, nPeaks, maxP);
+      rFile.findFreqPeaks(count, px, nPeaks, maxP);
       rFile.fitFreqNoise(count, px, nPeaks);
       rFile.fitFreqPeak(count, px, nPeaks);
     } 
@@ -80,8 +81,8 @@ int main(int argc, char *argv[]) {
         rFile.writeTimeTrees(input, i);
         rFile.fitTimeNoise(i);
         rFile.writeFreqTrees(input, i);
-        rFile.createPS(count);
-        rFile.findPeaks(count, px, nPeaks, maxP);
+        rFile.createPS(i);
+        rFile.findFreqPeaks(i, px, nPeaks, maxP);
         rFile.fitFreqNoise(i, px, nPeaks);
         rFile.fitFreqPeak(i, px, nPeaks);
       }

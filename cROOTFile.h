@@ -2,7 +2,6 @@
 #define  CROOTFILE_H
 
 class TFile;
-class TH1F;
 
 class cROOTFile {
   public:
@@ -10,9 +9,10 @@ class cROOTFile {
     ~cROOTFile();
     void writeFreqTrees(struct FFTinput *,int );
     void writeTimeTrees(struct FFTinput *,int );
+    void inputTestData(struct FFTinput *);
     void fitTimeNoise(int );
     void createPS(int);
-    void findPeaks(int,double*, int &, const int);
+    void findFreqPeaks(int,double*, int &, const int);
     void fitFreqNoise(int, double*, int );
     void fitFreqPeak(int, double*, int );
     void closeFile();
